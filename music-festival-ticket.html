@@ -3,23 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>チケット購入 - LiveHub</title>
+    <title>最推し!!! - 日本の音楽史 ~アーティスト特集~</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./img/favicon.webp" type="image/png">
     <style>
         :root {
-            --primary-color: #8b5cf6;
-            --secondary-color: #ec4899;
-            --accent-color: #06b6d4;
-            --dark-bg: #18181b;
+            --primary-color: #5A4632;
+            --secondary-color: #A67C52;
+            --accent-color: #C97B63;
+            --background-color: #F4EDE2;
+            --text-color: #2B1E12;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Zen Maru Gothic', sans-serif;
+        }
+
+        h1, h2 {
+            letter-spacing: 0.05em;
         }
         
         .navbar {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-color) 100%);
+            background: linear-gradient(135deg, var(--primary-color) 22%, var(--secondary-color) 50%, var(--accent-color) 100%);
         }
         
         .page-header {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-color) 50%, var(--secondary-color) 100%);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 80px 0 50px 0;
             margin-bottom: 40px;
@@ -98,7 +111,7 @@
         }
         
         .price-tag {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(90deg, #a22041 0%, #90326d 50%, #00afcc 100%);
             color: white;
             padding: 15px 25px;
             border-radius: 10px;
@@ -188,7 +201,7 @@
         }
         
         footer {
-            background-color: var(--dark-bg);
+            background-color: #1f2937;
             color: white;
             margin-top: 60px;
         }
@@ -196,10 +209,10 @@
 </head>
 <body>
     <!-- ナビゲーションバー -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">
-                <i class="bi bi-music-note-beamed"></i> LiveHub
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="./index.html">
+                <i class="bi bi-music-note-beamed"></i> 日本の音楽史 ~アーティスト特集~
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -207,23 +220,23 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ホーム</a>
+                        <a class="nav-link" aria-current="page" href="./index.html">ホーム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">イベント一覧</a>
+                        <a class="nav-link" href="./music-festival-list.html">音楽のルーツ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">アーティスト</a>
+                        <a class="nav-link" href="./music-artist-list.html">アーティスト</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">チケット購入</a>
+                        <a class="nav-link active" href="#">最推し!!!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">マイチケット</a>
+                        <a class="nav-link" href="./music-festival-myticket.html">コンサート情報</a>
                     </li>
                 </ul>
-                <button class="btn btn-light ms-3 fw-bold">
-                    <i class="bi bi-person-circle"></i> ログイン
+                <button class="btn btn-dark ms-3 fw-bold">
+                    <a class="nav-link" href="./music-login-page.html"><i class="bi bi-person-circle"></i> ログイン</a>
                 </button>
             </div>
         </div>
@@ -234,41 +247,42 @@
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#" class="text-white">ホーム</a></li>
-                    <li class="breadcrumb-item"><a href="#" class="text-white">イベント詳細</a></li>
-                    <li class="breadcrumb-item active text-white" aria-current="page">チケット購入</li>
+                    <li class="breadcrumb-item"><a href="./index.html" class="text-white">ホーム</a></li>
+                    <li class="breadcrumb-item"><a href="./music-artist-list.html" class="text-white">アーティスト</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">最推し!!!</li>
                 </ol>
             </nav>
-            <h1 class="display-4 fw-bold mb-3">チケット購入</h1>
-            <p class="lead">SUMMER MUSIC FESTIVAL 2024</p>
-            <p class="mb-0"><i class="bi bi-calendar-event"></i> 2024年12月3日 @ 東京ビッグサイト</p>
+            <h1 class="display-4 fw-bold mb-3">わたしの最推しアーティスト</h1>
+            <p class="lead">Number_i</p>
+            <p class="mb-0"><i class="bi bi-calendar-event"></i> 東京ドームで結成 2023年10月15日~</p>
         </div>
     </div>
 
     <div class="container">
         <!-- ステップインジケーター -->
         <div class="step-indicator">
-            <div class="step completed">
-                <div class="step-circle">
+            <div class="step">
+                <!-- <div class="step-circle">
                     <i class="bi bi-check-lg"></i>
-                </div>
-                <div class="fw-bold">チケット選択</div>
+                </div> -->
+                <div class="step-circle">0</div>
+                <div class="fw-bold">2023年10月15日<br>Number_i結成。</div>
             </div>
-            <div class="step active">
+            <div class="step">
+                <div class="step-circle">1</div>
+                <div class="fw-bold">2024年1月1日<br>「GOAT」でデビュー</div>
+            </div>
+            <div class="step completed">
                 <div class="step-circle">2</div>
-                <div class="fw-bold">座席選択</div>
+                <div class="fw-bold">2025年10月15日<br>結成2周年</div>
             </div>
             <div class="step">
                 <div class="step-circle">3</div>
-                <div class="fw-bold">お客様情報</div>
+                <div class="fw-bold">3周年</div>
             </div>
             <div class="step">
                 <div class="step-circle">4</div>
-                <div class="fw-bold">お支払い</div>
-            </div>
-            <div class="step">
-                <div class="step-circle">5</div>
-                <div class="fw-bold">完了</div>
+                <div class="fw-bold">4周年</div>
             </div>
         </div>
 
@@ -277,78 +291,79 @@
             <div class="col-lg-8">
                 <!-- チケット種類選択 -->
                 <div class="mb-4">
-                    <h3 class="fw-bold mb-4"><i class="bi bi-ticket-perforated text-primary"></i> チケット種類を選択</h3>
+                    <h3 class="fw-bold mb-4"><i class="bi bi-star text-primary"></i> Number_iの魅力</h3>
                     
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <div class="ticket-card" data-price="8000" data-type="一般チケット">
+                            <div class="ticket-card" data-type="音楽性が高い">
                                 <div class="d-flex justify-content-between align-items-start mb-3">
                                     <div>
-                                        <h5 class="fw-bold mb-1">一般チケット</h5>
-                                        <span class="badge bg-success">販売中</span>
+                                        <h5 class="fw-bold mb-1">音楽性が高い</h5>
+                                        <span class="badge bg-success">高みを目指して</span>
                                     </div>
-                                    <div class="price-tag">¥8,000</div>
+                                    <div class="price-tag">唯一無二</div>
                                 </div>
                                 <ul class="list-unstyled mb-0">
-                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> 全ステージ入場可能</li>
-                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> 再入場可能</li>
-                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> グッズ購入可能</li>
-                                    <li><i class="bi bi-check-circle-fill text-success"></i> フードエリア利用可能</li>
+                                    <li class="mb-2"><i class="bi bi-music-note text-success"></i> メンバー3人で楽曲をプロデュース</li>
+                                    <li class="mb-2"><i class="bi bi-music-note text-success"></i> 圧倒的なパフォーマンス</li>
+                                    <li class="mb-2"><i class="bi bi-music-note text-success"></i> 自ら作詞作曲するポテンシャルの高さ</li>
+                                    <li class="mb-2"><i class="bi bi-music-note text-success"></i> 幅広い音楽ジャンル</li>
+                                    <li><i class="bi bi-music-note text-success"></i> 歌詞に込められた想い</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="ticket-card" data-price="15000" data-type="VIPチケット">
+                            <div class="ticket-card" data-type="海外進出への情熱">
                                 <div class="d-flex justify-content-between align-items-start mb-3">
                                     <div>
-                                        <h5 class="fw-bold mb-1">VIPチケット</h5>
-                                        <span class="badge bg-warning text-dark">残りわずか</span>
+                                        <h5 class="fw-bold mb-1">海外進出への情熱</h5>
+                                        <span class="badge bg-danger text-dark">海外フェス引っ張りだこ</span>
                                     </div>
-                                    <div class="price-tag">¥15,000</div>
+                                    <div class="price-tag">成長</div>
                                 </div>
                                 <ul class="list-unstyled mb-0">
-                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> VIPエリア入場可能</li>
-                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> 優先入場</li>
-                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> 専用ラウンジ利用可能</li>
-                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> 限定グッズ付き</li>
-                                    <li><i class="bi bi-check-circle-fill text-success"></i> ドリンク2杯無料</li>
+                                    <li class="mb-2"><i class="bi bi-music-note text-success"></i> 海外に向けた熱い想い</li>
+                                    <li class="mb-2"><i class="bi bi-music-note text-success"></i> 数々の海外音楽フェスにも出演</li>
+                                    <li class="mb-2"><i class="bi bi-music-note text-success"></i> 世界的に人気なアーティストとコラボ</li>
+                                    <li class="mb-2"><i class="bi bi-music-note text-success"></i> 誰もが認める音楽作り</li>
+                                    <li><i class="bi bi-music-note text-success"></i> 海外のファンからも愛されている</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="ticket-card" data-price="6000" data-type="学生チケット">
+                            <div class="ticket-card" data-type="楽しませる天才">
                                 <div class="d-flex justify-content-between align-items-start mb-3">
                                     <div>
-                                        <h5 class="fw-bold mb-1">学生チケット</h5>
-                                        <span class="badge bg-info">要学生証</span>
+                                        <h5 class="fw-bold mb-1">楽しませる天才</h5>
+                                        <span class="badge bg-primary">ファンの愛称はiLYs</span>
                                     </div>
-                                    <div class="price-tag">¥6,000</div>
+                                    <div class="price-tag">エンタメ</div>
                                 </div>
                                 <ul class="list-unstyled mb-0">
-                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> 全ステージ入場可能</li>
-                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> 再入場可能</li>
-                                    <li class="mb-2"><i class="bi bi-exclamation-circle-fill text-warning"></i> 当日学生証の提示必須</li>
-                                    <li><i class="bi bi-check-circle-fill text-success"></i> 25歳以下限定</li>
+                                    <li class="mb-2"><i class="bi bi-music-note text-success"></i> ファンを笑顔にしてくれる</li>
+                                    <li class="mb-2"><i class="bi bi-music-note text-success"></i> エンタメ抜群</li>
+                                    <li class="mb-2"><i class="bi bi-music-note text-success"></i> 常に真新しさを追求</li>
+                                    <li><i class="bi bi-music-note text-success"></i> 良い意味で会話がぶっ飛んでて面白い</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="ticket-card" data-price="12000" data-type="ペアチケット">
+                            <div class="ticket-card" data-type="とても仲良し">
                                 <div class="d-flex justify-content-between align-items-start mb-3">
                                     <div>
-                                        <h5 class="fw-bold mb-1">ペアチケット</h5>
-                                        <span class="badge bg-danger">お得</span>
+                                        <h5 class="fw-bold mb-1">とても仲良し</h5>
+                                        <span class="badge bg-info">お互いを信頼し合う大親友</span>
                                     </div>
-                                    <div class="price-tag">¥12,000</div>
+                                    <div class="price-tag">ズッ友</div>
                                 </div>
                                 <ul class="list-unstyled mb-0">
-                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> 2名分のチケット</li>
-                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> 通常より¥4,000お得</li>
-                                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> 隣同士の座席保証</li>
-                                    <li><i class="bi bi-check-circle-fill text-success"></i> オリジナルグッズ付き</li>
+                                    <li class="mb-2"><i class="bi bi-music-note text-success"></i> 見れば伝わる信頼関係</li>
+                                    <li class="mb-2"><i class="bi bi-music-note text-success"></i> どんなときも一緒</li>
+                                    <li class="mb-2"><i class="bi bi-music-note text-success"></i> サプライズ大好き</li>
+                                    <li><i class="bi bi-music-note text-success"></i> これからもずっと推したい</li>
                                 </ul>
                             </div>
                         </div>
@@ -357,35 +372,35 @@
 
                 <!-- 座席選択 -->
                 <div class="mb-4">
-                    <h3 class="fw-bold mb-4"><i class="bi bi-grid-3x3-gap text-primary"></i> 座席を選択</h3>
+                    <h3 class="fw-bold mb-4"><i class="bi bi-grid-3x3-gap text-primary"></i> Number_iの豆知識</h3>
                     
                     <div class="seat-map">
                         <!-- ステージ -->
                         <div class="stage">
-                            <h4 class="mb-0"><i class="bi bi-music-note-beamed"></i> STAGE</h4>
+                            <h4 class="mb-0 text-success"><i class="bi bi-music-note-beamed text-success"></i> メンバー情報</h4>
                         </div>
 
                         <!-- 凡例 -->
                         <div class="mb-4 text-center">
                             <div class="legend-item">
-                                <div class="legend-box" style="background: #10b981;"></div>
-                                <span>空席</span>
+                                <div class="legend-box" style="background: #a22041;"></div>
+                                <span>平野紫耀</span>
                             </div>
                             <div class="legend-item">
-                                <div class="legend-box" style="background: #8b5cf6;"></div>
-                                <span>選択中</span>
+                                <div class="legend-box" style="background: #00afcc;"></div>
+                                <span>神宮寺勇太</span>
                             </div>
                             <div class="legend-item">
-                                <div class="legend-box" style="background: #e5e7eb;"></div>
-                                <span>売り切れ</span>
+                                <div class="legend-box" style="background: #90326d;"></div>
+                                <span>岸優太</span>
                             </div>
                         </div>
 
                         <!-- 座席エリア A -->
                         <div class="seat-section">
-                            <h6 class="fw-bold mb-3 text-center">エリア A（前方）</h6>
+                            <h6 class="fw-bold mb-3 text-center">岸優太はギターが上手い(自分のソロ曲を作曲&ベースも出来る)</h6>
                             <div class="text-center">
-                                <div class="mb-2">
+                                <!-- <div class="mb-2">
                                     <span class="seat available">A1</span>
                                     <span class="seat sold">A2</span>
                                     <span class="seat available">A3</span>
@@ -394,8 +409,8 @@
                                     <span class="seat available">A6</span>
                                     <span class="seat available">A7</span>
                                     <span class="seat sold">A8</span>
-                                </div>
-                                <div class="mb-2">
+                                </div> -->
+                                <!-- <div class="mb-2">
                                     <span class="seat sold">B1</span>
                                     <span class="seat available">B2</span>
                                     <span class="seat available">B3</span>
@@ -404,8 +419,8 @@
                                     <span class="seat available">B6</span>
                                     <span class="seat sold">B7</span>
                                     <span class="seat available">B8</span>
-                                </div>
-                                <div>
+                                </div> -->
+                                <!-- <div>
                                     <span class="seat available">C1</span>
                                     <span class="seat available">C2</span>
                                     <span class="seat sold">C3</span>
@@ -414,7 +429,7 @@
                                     <span class="seat sold">C6</span>
                                     <span class="seat available">C7</span>
                                     <span class="seat available">C8</span>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
@@ -422,9 +437,9 @@
 
                         <!-- 座席エリア B -->
                         <div class="seat-section">
-                            <h6 class="fw-bold mb-3 text-center">エリア B（中央）</h6>
+                            <h6 class="fw-bold mb-3 text-center">神宮寺勇太は多趣味(バイクやジーンズ、時計、車が好き)</h6>
                             <div class="text-center">
-                                <div class="mb-2">
+                                <!-- <div class="mb-2">
                                     <span class="seat available">D1</span>
                                     <span class="seat available">D2</span>
                                     <span class="seat sold">D3</span>
@@ -435,8 +450,8 @@
                                     <span class="seat available">D8</span>
                                     <span class="seat available">D9</span>
                                     <span class="seat sold">D10</span>
-                                </div>
-                                <div class="mb-2">
+                                </div> -->
+                                <!-- <div class="mb-2">
                                     <span class="seat available">E1</span>
                                     <span class="seat sold">E2</span>
                                     <span class="seat available">E3</span>
@@ -447,7 +462,7 @@
                                     <span class="seat available">E8</span>
                                     <span class="seat available">E9</span>
                                     <span class="seat available">E10</span>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
@@ -455,9 +470,9 @@
 
                         <!-- 座席エリア C -->
                         <div class="seat-section">
-                            <h6 class="fw-bold mb-3 text-center">エリア C（後方）</h6>
+                            <h6 class="fw-bold mb-3 text-center">平野紫耀は身体能力が高すぎる(アスリート並の運動神経の高さ)</h6>
                             <div class="text-center">
-                                <div class="mb-2">
+                                <!-- <div class="mb-2">
                                     <span class="seat available">F1</span>
                                     <span class="seat available">F2</span>
                                     <span class="seat available">F3</span>
@@ -470,8 +485,8 @@
                                     <span class="seat available">F10</span>
                                     <span class="seat available">F11</span>
                                     <span class="seat available">F12</span>
-                                </div>
-                                <div>
+                                </div> -->
+                                <!-- <div>
                                     <span class="seat available">G1</span>
                                     <span class="seat available">G2</span>
                                     <span class="seat available">G3</span>
@@ -484,87 +499,87 @@
                                     <span class="seat available">G10</span>
                                     <span class="seat available">G11</span>
                                     <span class="seat available">G12</span>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- 注意事項 -->
-                <div class="alert alert-warning alert-custom border-warning">
-                    <h5 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> 注意事項</h5>
+                <div class="alert alert-info alert-custom border-info">
+                    <h5 class="alert-heading"><i class="bi bi-award-fill"></i> 概要</h5>
                     <ul class="mb-0">
-                        <li>チケットは選択から15分以内に購入手続きを完了してください</li>
-                        <li>座席の選択は先着順です。他のユーザーが先に購入した場合、選択が解除されます</li>
-                        <li>購入後のキャンセル・変更はできません</li>
-                        <li>当日は購入完了メールまたはアプリの電子チケットが必要です</li>
+                        <li>Number_iは2023年に結成されたTOBE所属の3人組グループです。</li>
+                        <li>ファンの愛称はiLYs(アイリーズ)です。リーダーの岸優太が命名。</li>
+                        <li>女性ファンも男性ファンも多いです。老若男女に愛される。</li>
+                        <li>コンサートはオーケストラやダンサー起用など、意外とアーティスト志向です。</li>
                     </ul>
                 </div>
 
-                <div class="alert alert-info alert-custom border-info">
-                    <h5 class="alert-heading"><i class="bi bi-info-circle-fill"></i> お得情報</h5>
-                    <p class="mb-0">ペアチケットは通常より¥4,000お得!友達や家族と一緒に楽しもう!</p>
+                <div class="alert alert-success alert-custom border-success">
+                    <h5 class="alert-heading"><i class="bi bi-bell-fill"></i> おまけ情報</h5>
+                    <p class="mb-0">ファンクラブに入ると限定動画や最新情報がすぐ見れます！(他にも機能多くて楽しいよ)</p>
                 </div>
             </div>
 
             <!-- サイドバー（購入サマリー） -->
             <div class="col-lg-4">
                 <div class="summary-card">
-                    <h5 class="fw-bold mb-4"><i class="bi bi-cart-check"></i> 購入内容</h5>
+                    <h5 class="fw-bold mb-4"><i class="bi bi-cart-check"></i> わたしの最推しアーティスト</h5>
                     
                     <div class="mb-4">
-                        <h6 class="text-muted mb-3">イベント情報</h6>
-                        <p class="mb-1 fw-bold">SUMMER MUSIC FESTIVAL 2024</p>
+                        <h6 class="text-muted mb-3">Number_i</h6>
+                        <p class="mb-1 fw-bold"></p>
                         <p class="mb-1 small text-muted">
-                            <i class="bi bi-calendar-event"></i> 2024年12月3日（火）
+                            <i class="bi bi-calendar-event"></i> 2023年10月15日~
                         </p>
                         <p class="mb-0 small text-muted">
-                            <i class="bi bi-geo-alt-fill"></i> 東京ビッグサイト
+                            <i class="bi bi-geo-alt-fill"></i> 東京ドームでグループ結成
                         </p>
                     </div>
 
                     <hr>
 
                     <div class="mb-4">
-                        <h6 class="text-muted mb-3">選択中のチケット</h6>
+                        <h6 class="text-muted mb-3">Number_iの魅力は…</h6>
                         <div id="selectedTicket" class="text-muted">
-                            チケットを選択してください
+                            選択してください
                         </div>
                     </div>
 
-                    <div class="mb-4">
+                    <!-- <div class="mb-4">
                         <h6 class="text-muted mb-3">選択中の座席</h6>
                         <div id="selectedSeats" class="text-muted">
                             座席を選択してください
                         </div>
-                    </div>
+                    </div> -->
 
                     <hr>
 
-                    <div class="mb-4">
+                    <!-- <div class="mb-4">
                         <div class="d-flex justify-content-between mb-2">
                             <span>チケット料金</span>
-                            <span id="ticketPrice">¥0</span>
+                            <span id="ticketPrice"></span>
                         </div>
                         <div class="d-flex justify-content-between mb-2">
                             <span>システム手数料</span>
-                            <span id="serviceFee">¥0</span>
+                            <span id="serviceFee"></span>
                         </div>
                         <div class="d-flex justify-content-between mb-3">
                             <span>配送手数料</span>
-                            <span>¥0</span>
+                            <span></span>
                         </div>
                         <hr>
                         <div class="d-flex justify-content-between fs-4 fw-bold">
                             <span>合計</span>
-                            <span id="totalPrice" style="color: var(--primary-color);">¥0</span>
+                            <span id="totalPrice" style="color: var(--primary-color);"></span>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <button class="btn btn-lg w-100 fw-bold mb-2" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; border: none;">
+                    <button class="btn btn-lg w-100 fw-bold mb-2" style="background:#da1f8c; color: white; border: none;" onclick="window.location.href='./music-festival-myticket.html'">
                         次へ進む <i class="bi bi-arrow-right"></i>
                     </button>
-                    <button class="btn btn-outline-secondary btn-lg w-100">
+                    <button class="btn btn-outline-secondary btn-lg w-100" onclick="window.location.href='./index.html'">
                         <i class="bi bi-arrow-left"></i> 戻る
                     </button>
 
@@ -583,37 +598,37 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <h5 class="fw-bold mb-3"><i class="bi bi-music-note-beamed"></i> LiveHub</h5>
-                    <p class="text-light">音楽で繋がる、最高の体験をあなたに。</p>
+                    <h5 class="fw-bold mb-3"><i class="bi bi-music-note-beamed"></i> 日本の音楽史 ~アーティスト特集~</h5>
+                    <p class="text-light">あの頃この頃のアーティストを自分なりに調べてみた</p>
                 </div>
                 <div class="col-md-2 mb-3">
                     <h6 class="fw-bold mb-3">サイト情報</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-light text-decoration-none">About</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">利用規約</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">プライバシー</a></li>
+                        <li><a href="./index.html" class="text-light text-decoration-none">About</a></li>
+                        <li><a href="./terms-of-service.html" class="text-light text-decoration-none">利用規約</a></li>
+                        <li><a href="./privacy-policy.html" class="text-light text-decoration-none">プライバシー</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2 mb-3">
                     <h6 class="fw-bold mb-3">サポート</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-light text-decoration-none">ヘルプ</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">お問い合わせ</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+                        <li><a href="./support.html" class="text-light text-decoration-none">ヘルプ</a></li>
+                        <li><a href="./support.html#support-section" class="text-light text-decoration-none">お問い合わせ</a></li>
+                        <li><a href="./support.html" class="text-light text-decoration-none">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-3">
                     <h6 class="fw-bold mb-3">フォローする</h6>
                     <div class="d-flex gap-3">
-                        <a href="#" class="text-light"><i class="bi bi-twitter fs-4"></i></a>
-                        <a href="#" class="text-light"><i class="bi bi-instagram fs-4"></i></a>
-                        <a href="#" class="text-light"><i class="bi bi-youtube fs-4"></i></a>
-                        <a href="#" class="text-light"><i class="bi bi-spotify fs-4"></i></a>
+                        <a href="https://x.com/?lang=ja" target="_blank" class="text-light"><i class="bi bi-twitter-x fs-4"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" class="text-light"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="https://www.youtube.com/account" target="_blank" class="text-light"><i class="bi bi-youtube fs-4"></i></a>
+                        <a href="https://www.spotify.com/jp/signup" target="_blank" class="text-light"><i class="bi bi-spotify fs-4"></i></a>
                     </div>
                 </div>
             </div>
             <hr class="border-light">
-            <p class="text-center text-light mb-0">&copy; 2024 LiveHub. All rights reserved.</p>
+            <p class="text-center text-light mb-0">&copy; 2025 日本の音楽史 ~アーティスト特集~ All rights reserved.</p>
         </div>
     </footer>
 
@@ -659,7 +674,7 @@
                 document.getElementById('selectedTicket').innerHTML = `
                     <div class="d-flex justify-content-between">
                         <span>${selectedTicketType}</span>
-                        <span class="fw-bold">¥${selectedTicketPrice.toLocaleString()}</span>
+                        <!-- <span class="fw-bold">¥${selectedTicketPrice.toLocaleString()}</span> -->
                     </div>
                 `;
             }
