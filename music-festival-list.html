@@ -1,62 +1,101 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>イベント一覧 - LiveHub</title>
+    <title>音楽のルーツ - 日本の音楽史 ~アーティスト特集~</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./img/favicon.webp" type="image/png">
     <style>
         :root {
-            --primary-color: #8b5cf6;
-            --secondary-color: #ec4899;
-            --accent-color: #06b6d4;
-            --dark-bg: #18181b;
+            --primary-color: #5A4632;
+            --secondary-color: #A67C52;
+            --accent-color: #C97B63;
+            --background-color: #F4EDE2;
+            --text-color: #2B1E12;
         }
-        
+
         body {
-            background-color: #fafafa;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Zen Maru Gothic', sans-serif;
         }
-        
+
+        h1,
+        h2 {
+            letter-spacing: 0.05em;
+        }
+
+        /*追加要素…「ジャンル順」ボタンをピンク色に変更 */
+        .btn-custom {
+            background-color: #F4EDE2;
+            border-color: #ff69b4;
+            color: #ff69b4;
+        }
+
+        /*追加要素…「詳細を見る」ボタンをピンク色に変更 */
+        .btn-custom-two {
+            background-color: white;
+            border-color: #ff69b4;
+            color: #ff69b4;
+        }
+
+        /*ホバー時 */
+        .btn-custom-two:hover {
+            background-color: #da1f8c;
+            border-color: #da1f8c;
+            color: white;
+        }
+
+        /*ページネーションに色を付ける(ピンク色) */
+        .page-item.active .page-link {
+            background-color: #da1f8c;
+            border-color: #da1f8c;
+            color: white;
+        }
+
         .navbar {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-color) 100%);
+            background: linear-gradient(135deg, var(--primary-color) 22%, var(--secondary-color) 50%, var(--accent-color) 100%);
         }
-        
+
         .page-header {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-color) 50%, var(--secondary-color) 100%);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 80px 0 50px 0;
             margin-bottom: 40px;
         }
-        
+
         .filter-card {
             position: sticky;
             top: 20px;
             background: white;
             border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
-        
+
         .event-list-card {
             transition: all 0.3s ease;
             border: none;
             border-radius: 15px;
             overflow: hidden;
             background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
-        
+
         .event-list-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
         }
-        
+
         .event-list-img {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
-        
+
         .venue-badge {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -64,7 +103,7 @@
             border-radius: 20px;
             font-size: 0.85rem;
         }
-        
+
         .price-tag {
             background: var(--accent-color);
             color: white;
@@ -72,25 +111,25 @@
             border-radius: 10px;
             font-weight: bold;
         }
-        
+
         .filter-section {
             background-color: #f8f9fa;
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
         }
-        
+
         .form-check-input:checked {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
         }
-        
+
         .sort-btn.active {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-color: #da1f8c; 
             color: white;
             border: none;
         }
-        
+
         .genre-filter-badge {
             cursor: pointer;
             transition: all 0.2s ease;
@@ -98,16 +137,16 @@
             border-radius: 25px;
             font-weight: 500;
         }
-        
+
         .genre-filter-badge:hover {
             transform: translateY(-2px);
         }
-        
+
         .genre-filter-badge.active {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
             color: white !important;
         }
-        
+
         .date-badge {
             background: rgba(139, 92, 246, 0.1);
             color: var(--primary-color);
@@ -115,20 +154,21 @@
             border-radius: 10px;
             font-weight: 600;
         }
-        
+
         footer {
-            background-color: var(--dark-bg);
+            background-color: #1f2937;
             color: white;
             margin-top: 60px;
         }
     </style>
 </head>
+
 <body>
     <!-- ナビゲーションバー -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">
-                <i class="bi bi-music-note-beamed"></i> LiveHub
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="./index.html">
+                <i class="bi bi-music-note-beamed"></i> 日本の音楽史 ~アーティスト特集~
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -136,23 +176,23 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ホーム</a>
+                        <a class="nav-link" aria-current="page" href="./index.html">ホーム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">イベント一覧</a>
+                        <a class="nav-link active" href="#">音楽のルーツ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">アーティスト</a>
+                        <a class="nav-link" href="./music-artist-list.html">アーティスト</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">チケット購入</a>
+                        <a class="nav-link" href="./music-festival-ticket.html">最推し!!!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">マイチケット</a>
+                        <a class="nav-link" href="./music-festival-myticket.html">コンサート情報</a>
                     </li>
                 </ul>
-                <button class="btn btn-light ms-3 fw-bold">
-                    <i class="bi bi-person-circle"></i> ログイン
+                <button class="btn btn-dark ms-3 fw-bold">
+                    <a class="nav-link" href="./music-login-page.html"><i class="bi bi-person-circle"></i> ログイン</a>
                 </button>
             </div>
         </div>
@@ -161,9 +201,9 @@
     <!-- ページヘッダー -->
     <div class="page-header">
         <div class="container">
-            <h1 class="display-4 fw-bold mb-3">イベント一覧</h1>
-            <p class="lead">全国で開催される音楽イベントを探そう</p>
-            <div class="row mt-4">
+            <h1 class="display-4 fw-bold mb-3">音楽のルーツ</h1>
+            <p class="lead">そもそも音楽って何始まり？</p>
+            <!-- <div class="row mt-4">
                 <div class="col-md-8">
                     <div class="input-group input-group-lg">
                         <input type="text" class="form-control" placeholder="イベント名、アーティスト名、会場名で検索...">
@@ -172,19 +212,28 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
+
+    <!-- <div class="container text-center rounded" style="background: (--background-color)"><br>
+        <h1>Question1.音楽はいつからはじまったのか？</h1><br>
+        <h5>Answer.簡単に言うと人間が文字を使う前の時代から実在するらしい…</h5><br><br>
+        <h1>Question2.どこまでが音楽？</h1><br>
+        <h5>Answer.音楽の数は無限大！<br>人によって好きな音楽があるからそれら全部含めて音楽！！</h5><br><br>
+        <h1>音楽って、そんなに前からあるんだ…</h1>
+        <h1>主なジャンルのルーツを調べてみました</h1><br>
+    </div><br> -->
 
     <div class="container">
         <div class="row">
             <!-- フィルターサイドバー -->
             <div class="col-lg-3">
                 <div class="filter-card p-4">
-                    <h5 class="fw-bold mb-4"><i class="bi bi-funnel-fill"></i> フィルター</h5>
-                    
+                    <h5 class="fw-bold mb-7"><i class="bi bi-music-note-beamed"></i> 好きなジャンル一覧</h5>
+
                     <!-- 日程 -->
-                    <div class="filter-section">
+                    <!-- <div class="filter-section">
                         <h6 class="fw-bold mb-3">開催日程</h6>
                         <div class="form-check mb-2">
                             <input class="form-check-input" type="radio" name="date" id="date1" checked>
@@ -210,10 +259,10 @@
                                 3ヶ月以内
                             </label>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- ジャンル -->
-                    <div class="filter-section">
+                    <!-- <div class="filter-section">
                         <h6 class="fw-bold mb-3">ジャンル</h6>
                         <div class="form-check mb-2">
                             <input class="form-check-input" type="checkbox" id="genre1" checked>
@@ -251,10 +300,10 @@
                                 アコースティック <span class="badge bg-secondary">20</span>
                             </label>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- 会場別 -->
-                    <div class="filter-section">
+                    <!-- <div class="filter-section">
                         <h6 class="fw-bold mb-3">会場エリア</h6>
                         <div class="form-check mb-2">
                             <input class="form-check-input" type="checkbox" id="venue1">
@@ -286,10 +335,10 @@
                                 北海道 <span class="badge bg-secondary">18</span>
                             </label>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- 価格帯 -->
-                    <div class="filter-section">
+                    <!-- <div class="filter-section">
                         <h6 class="fw-bold mb-3">価格帯</h6>
                         <div class="form-check mb-2">
                             <input class="form-check-input" type="checkbox" id="price1">
@@ -309,10 +358,10 @@
                                 ¥10,000〜
                             </label>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- チケット状況 -->
-                    <div class="filter-section">
+                    <!-- <div class="filter-section">
                         <h6 class="fw-bold mb-3">チケット状況</h6>
                         <div class="form-check mb-2">
                             <input class="form-check-input" type="checkbox" id="status1" checked>
@@ -332,11 +381,11 @@
                                 完売 <span class="badge bg-danger">78</span>
                             </label>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <button class="btn btn-outline-danger w-100 mb-2">
+                    <!-- <button class="btn btn-outline-danger w-100 mb-2">
                         <i class="bi bi-x-circle"></i> フィルターをクリア
-                    </button>
+                    </button> -->
                 </div>
             </div>
 
@@ -345,61 +394,68 @@
                 <!-- ツールバー -->
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <div>
-                        <h5 class="mb-0">検索結果: <span class="fw-bold" style="color: var(--primary-color);">123件</span></h5>
+                        <h5 class="mb-0">検索結果: <span class="fw-bold" style="color: var(--primary-color);">6件</span>
+                        </h5>
                     </div>
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-outline-primary sort-btn active">
-                            <i class="bi bi-calendar"></i> 開催日順
+                        <button type="button" class="btn btn-custom sort-btn active">
+                            <i class="bi bi-calendar"></i> ジャンル順
                         </button>
-                        <button type="button" class="btn btn-outline-primary sort-btn">
+                        <!-- <button type="button" class="btn btn-custom sort-btn">
                             <i class="bi bi-fire"></i> 人気順
                         </button>
-                        <button type="button" class="btn btn-outline-primary sort-btn">
+                        <button type="button" class="btn btn-custom sort-btn">
                             <i class="bi bi-currency-yen"></i> 価格順
-                        </button>
+                        </button> -->
                     </div>
                 </div>
 
                 <!-- ジャンルクイックフィルター -->
                 <div class="mb-4">
                     <div class="d-flex gap-2 flex-wrap">
-                        <span class="badge genre-filter-badge active" style="background-color: #e5e7eb; color: #1f2937;">すべて</span>
-                        <span class="badge genre-filter-badge" style="background-color: #fee2e2; color: #991b1b;">ロック</span>
-                        <span class="badge genre-filter-badge" style="background-color: #fef3c7; color: #92400e;">ポップ</span>
-                        <span class="badge genre-filter-badge" style="background-color: #e0e7ff; color: #3730a3;">EDM</span>
-                        <span class="badge genre-filter-badge" style="background-color: #dbeafe; color: #1e40af;">ジャズ</span>
-                        <span class="badge genre-filter-badge" style="background-color: #fce7f3; color: #9f1239;">ヒップホップ</span>
+                        <a href="./music-festival-list.html"><span class="badge genre-filter-badge active"
+                            style="background-color: #e5e7eb; color: #1f2937;">すべて</span></a>
+                        <a href="./music-festival-list.html#band-section"><span class="badge genre-filter-badge"
+                            style="background-color: #fee2e2; color: #991b1b;">バンド</span></a>
+                        <a href="./music-festival-list.html#idol-section"><span class="badge genre-filter-badge"
+                            style="background-color: #fef3c7; color: #92400e;">アイドル</span></a>
+                        <a href="./music-festival-list.html#popmusic-section"><span class="badge genre-filter-badge"
+                            style="background-color: #e0e7ff; color: #3730a3;">ポップ・ミュージック</span></a>
+                        <a href="./music-festival-list.html#dancemusic-section"><span class="badge genre-filter-badge"
+                            style="background-color: #dbeafe; color: #1e40af;">ダンス・ミュージック</span></a>
                     </div>
                 </div>
 
                 <!-- イベントカード -->
                 <div class="row g-4 mb-4">
                     <div class="col-md-6">
-                        <div class="card event-list-card">
-                            <img src="https://placehold.co/600x200/8b5cf6/ffffff?text=Summer+Fest" class="event-list-img" alt="Summer Festival">
+                        <div class="card event-list-card" id="band-section">
+                            <img src="./img/ロック.webp" class="event-list-img" alt="ロックの画像">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-start mb-2">
                                     <div>
                                         <span class="date-badge">
-                                            <i class="bi bi-calendar-event"></i> 12月3日
+                                            <i class="bi bi-calendar-event"></i> 1950年代~
                                         </span>
                                     </div>
-                                    <span class="badge bg-success">販売中</span>
+                                    <span class="badge bg-success">エレキが特徴的</span>
                                 </div>
-                                <h5 class="card-title fw-bold mb-2">SUMMER MUSIC FESTIVAL 2024</h5>
+                                <h5 class="card-title fw-bold mb-2">ロックのはじまり</h5>
                                 <p class="venue-badge mb-3">
-                                    <i class="bi bi-geo-alt-fill"></i> 東京ビッグサイト
+                                    <i class="bi bi-geo-alt-fill"></i> 米国で誕生
                                 </p>
                                 <div class="d-flex gap-2 mb-3">
                                     <span class="badge" style="background-color: #fee2e2; color: #991b1b;">ロック</span>
-                                    <span class="badge" style="background-color: #fef3c7; color: #92400e;">ポップ</span>
+                                    <span class="badge"
+                                        style="background-color: #fef3c7; color: #92400e;">ロック・ミュージック</span>
+                                    <span class="badge" style="background-color: #fefdc7; color: #92680e;">ロック音楽</span>
                                 </div>
                                 <p class="card-text text-muted small mb-3">
-                                    今年も夏の大型フェスが開催!豪華アーティスト50組以上が出演する国内最大級の音楽フェスティバル
+                                    1950年代に誕生した音楽のジャンル。力強いエレキサウンドやビートが特徴で、多くのバンドに影響を与える。
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div class="price-tag">¥8,000〜</div>
-                                    <button class="btn btn-primary">
+                                    <div class="price-tag">大人気</div>
+                                    <button class="btn btn-custom-two" onclick="window.location.href='./music-festival-list.html#band-section'">
                                         詳細を見る <i class="bi bi-arrow-right"></i>
                                     </button>
                                 </div>
@@ -409,30 +465,98 @@
 
                     <div class="col-md-6">
                         <div class="card event-list-card">
-                            <img src="https://placehold.co/600x200/ec4899/ffffff?text=Rock+Night" class="event-list-img" alt="Rock Night">
+                            <img src="./img/フォーク.webp" class="event-list-img" alt="フォークの画像">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-start mb-2">
                                     <div>
                                         <span class="date-badge">
-                                            <i class="bi bi-calendar-event"></i> 12月10日
+                                            <i class="bi bi-calendar-event"></i> 1950年代~
                                         </span>
                                     </div>
-                                    <span class="badge bg-success">販売中</span>
+                                    <span class="badge bg-success">素朴な強いメッセージ性</span>
                                 </div>
-                                <h5 class="card-title fw-bold mb-2">ROCK NIGHT JAPAN</h5>
+                                <h5 class="card-title fw-bold mb-2">フォークのはじまり</h5>
                                 <p class="venue-badge mb-3">
-                                    <i class="bi bi-geo-alt-fill"></i> 大阪城ホール
+                                    <i class="bi bi-geo-alt-fill"></i> 米国で誕生
                                 </p>
                                 <div class="d-flex gap-2 mb-3">
-                                    <span class="badge" style="background-color: #fee2e2; color: #991b1b;">ロック</span>
-                                    <span class="badge" style="background-color: #1f2937; color: white;">メタル</span>
+                                    <span class="badge" style="background-color: #fef3e2; color: #99581b;">フォーク</span>
+                                    <span class="badge"
+                                        style="background-color: #f1fee2; color: #86991b;">フォークソング</span>
                                 </div>
                                 <p class="card-text text-muted small mb-3">
-                                    日本を代表するロックバンドが集結する一夜限りのスペシャルライブ。圧倒的なパフォーマンスを体感せよ
+                                    1950年代に誕生した音楽のジャンル。アコースティックで奏でる日常の想いを唄うメッセージ性の強い歌詞が特徴。
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div class="price-tag">¥6,500〜</div>
-                                    <button class="btn btn-primary">
+                                    <div class="price-tag">弾語り</div>
+                                    <button class="btn btn-custom-two" onclick="window.location.href='./music-festival-list.html#band-section'">
+                                        詳細を見る <i class="bi bi-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card event-list-card" id="idol-section">
+                            <img src="./img/アイドル.webp" class="event-list-img" alt="Jazz Live">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <div>
+                                        <span class="date-badge">
+                                            <i class="bi bi-calendar-event"></i> 1960年代~
+                                        </span>
+                                    </div>
+                                    <span class="badge bg-success">アイドル全盛期</span>
+                                </div>
+                                <h5 class="card-title fw-bold mb-2">アイドルのはじまり</h5>
+                                <p class="venue-badge mb-3">
+                                    <i class="bi bi-geo-alt-fill"></i> 米国が起源
+                                </p>
+                                <div class="d-flex gap-2 mb-3">
+                                    <span class="badge" style="background-color: #fedbfa; color: #991b93;">アイドル</span>
+                                    <span class="badge" style="background-color: #ddd6fe; color: #5b21b6;">偶像</span>
+                                </div>
+                                <p class="card-text text-muted small mb-3">
+                                    1960年代に誕生した音楽ジャンル。多彩な魅力を持つソロやグループが活躍し、ライブや推し文化が盛んに発展中。
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="price-tag">人気急上昇</div>
+                                    <button class="btn btn-custom-two" onclick="window.location.href='./music-festival-list.html#idol-section'">
+                                        詳細を見る <i class="bi bi-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card event-list-card" id="popmusic-section">
+                            <img src="./img/J-POP.webp" class="event-list-img" alt="J-POP">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <div>
+                                        <span class="date-badge">
+                                            <i class="bi bi-calendar-event"></i> 1980年代~
+                                        </span>
+                                    </div>
+                                    <span class="badge bg-success">大衆的な日本の音楽</span>
+                                </div>
+                                <h5 class="card-title fw-bold mb-2">J-POPのはじまり</h5>
+                                <p class="venue-badge mb-3">
+                                    <i class="bi bi-geo-alt-fill"></i> 日本のポピュラー音楽が起点
+                                </p>
+                                <div class="d-flex gap-2 mb-3">
+                                    <span class="badge" style="background-color: #e0e7ff; color: #3730a3;">J-POP</span>
+                                    <span class="badge"
+                                        style="background-color: #dbeafe; color: #1e40af;">ポピュラー音楽</span>
+                                </div>
+                                <p class="card-text text-muted small mb-3">
+                                    1980年代にその言葉が誕生し、1990年代に定着した、日本で作られる大衆的な音楽を指す総合的な音楽ジャンル。
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="price-tag">人気沸騰中</div>
+                                    <button class="btn btn-custom-two" onclick="window.location.href='./music-festival-list.html#popmusic-section'">
                                         詳細を見る <i class="bi bi-arrow-right"></i>
                                     </button>
                                 </div>
@@ -442,30 +566,30 @@
 
                     <div class="col-md-6">
                         <div class="card event-list-card">
-                            <img src="https://placehold.co/600x200/06b6d4/ffffff?text=Jazz+Live" class="event-list-img" alt="Jazz Live">
+                            <img src="./img/シティーポップ.webp" class="event-list-img" alt="シティ・ポップ">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-start mb-2">
                                     <div>
                                         <span class="date-badge">
-                                            <i class="bi bi-calendar-event"></i> 12月15日
+                                            <i class="bi bi-calendar-event"></i> 1970年代~
                                         </span>
                                     </div>
-                                    <span class="badge bg-warning text-dark">残りわずか</span>
+                                    <span class="badge bg-success">都会的なポピュラー音楽</span>
                                 </div>
-                                <h5 class="card-title fw-bold mb-2">TOKYO JAZZ SESSION</h5>
+                                <h5 class="card-title fw-bold mb-2">シティ・ポップのはじまり</h5>
                                 <p class="venue-badge mb-3">
-                                    <i class="bi bi-geo-alt-fill"></i> ブルーノート東京
+                                    <i class="bi bi-geo-alt-fill"></i> 欧米音楽を基に日本で発祥
                                 </p>
                                 <div class="d-flex gap-2 mb-3">
-                                    <span class="badge" style="background-color: #dbeafe; color: #1e40af;">ジャズ</span>
-                                    <span class="badge" style="background-color: #ddd6fe; color: #5b21b6;">ブルース</span>
+                                    <span class="badge"
+                                        style="background-color: #d8d1fa; color: #061c5f;">シティ・ポップ</span>
                                 </div>
                                 <p class="card-text text-muted small mb-3">
-                                    世界的ジャズミュージシャンによる贅沢なセッションライブ。大人の音楽空間をお楽しみください
+                                    1970~80年代にかけて制作され始め、洋楽志向で都会的なサウンドが特徴なポピュラー音楽のジャンル。
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div class="price-tag">¥9,800〜</div>
-                                    <button class="btn btn-primary">
+                                    <div class="price-tag">チル</div>
+                                    <button class="btn btn-custom-two" onclick="window.location.href='./music-festival-list.html#popmusic-section'">
                                         詳細を見る <i class="bi bi-arrow-right"></i>
                                     </button>
                                 </div>
@@ -474,97 +598,30 @@
                     </div>
 
                     <div class="col-md-6">
-                        <div class="card event-list-card">
-                            <img src="https://placehold.co/600x200/a855f7/ffffff?text=EDM+Party" class="event-list-img" alt="EDM Party">
+                        <div class="card event-list-card" id="dancemusic-section">
+                            <img src="./img/ダンスミュージック.webp" class="event-list-img" alt="ダンス・ミュージック">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-start mb-2">
                                     <div>
                                         <span class="date-badge">
-                                            <i class="bi bi-calendar-event"></i> 12月20日
+                                            <i class="bi bi-calendar-event"></i> 1950年代~
                                         </span>
                                     </div>
-                                    <span class="badge bg-success">販売中</span>
+                                    <span class="badge bg-success">広く親しまれるダンス音楽</span>
                                 </div>
-                                <h5 class="card-title fw-bold mb-2">ELECTRO WAVE FESTIVAL</h5>
+                                <h5 class="card-title fw-bold mb-2">ダンス・ミュージックのはじまり</h5>
                                 <p class="venue-badge mb-3">
-                                    <i class="bi bi-geo-alt-fill"></i> 幕張メッセ
+                                    <i class="bi bi-geo-alt-fill"></i> 最も初期は中世ヨーロッパ
                                 </p>
                                 <div class="d-flex gap-2 mb-3">
-                                    <span class="badge" style="background-color: #e0e7ff; color: #3730a3;">EDM</span>
-                                    <span class="badge" style="background-color: #dbeafe; color: #1e40af;">エレクトロ</span>
+                                    <span class="badge" style="background-color: #fce7f3; color: #f59e0b;">ダンス</span>
                                 </div>
                                 <p class="card-text text-muted small mb-3">
-                                    世界トップクラスのDJが集結!踊り明かす最高の一夜。最先端のサウンドシステムで極上の体験を
+                                    1950年代に広まり、多様な音楽要素を取り入れながら発展し、現代でも親しまれているダンス中心の音楽ジャンル。
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div class="price-tag">¥7,500〜</div>
-                                    <button class="btn btn-primary">
-                                        詳細を見る <i class="bi bi-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="card event-list-card">
-                            <img src="https://placehold.co/600x200/10b981/ffffff?text=Acoustic+Live" class="event-list-img" alt="Acoustic Live">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <div>
-                                        <span class="date-badge">
-                                            <i class="bi bi-calendar-event"></i> 12月25日
-                                        </span>
-                                    </div>
-                                    <span class="badge bg-success">販売中</span>
-                                </div>
-                                <h5 class="card-title fw-bold mb-2">WINTER ACOUSTIC NIGHT</h5>
-                                <p class="venue-badge mb-3">
-                                    <i class="bi bi-geo-alt-fill"></i> なんばHatch
-                                </p>
-                                <div class="d-flex gap-2 mb-3">
-                                    <span class="badge" style="background-color: #d1fae5; color: #065f46;">アコースティック</span>
-                                    <span class="badge" style="background-color: #fef3c7; color: #92400e;">フォーク</span>
-                                </div>
-                                <p class="card-text text-muted small mb-3">
-                                    心温まる冬の夜に、アコースティックサウンドを。アットホームな雰囲気の中で音楽を楽しむ
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="price-tag">¥5,500〜</div>
-                                    <button class="btn btn-primary">
-                                        詳細を見る <i class="bi bi-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="card event-list-card">
-                            <img src="https://placehold.co/600x200/f59e0b/ffffff?text=Hip+Hop" class="event-list-img" alt="Hip Hop">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <div>
-                                        <span class="date-badge">
-                                            <i class="bi bi-calendar-event"></i> 12月28日
-                                        </span>
-                                    </div>
-                                    <span class="badge bg-danger">完売間近</span>
-                                </div>
-                                <h5 class="card-title fw-bold mb-2">URBAN BEATS FESTIVAL</h5>
-                                <p class="venue-badge mb-3">
-                                    <i class="bi bi-geo-alt-fill"></i> Zepp Tokyo
-                                </p>
-                                <div class="d-flex gap-2 mb-3">
-                                    <span class="badge" style="background-color: #fce7f3; color: #9f1239;">ヒップホップ</span>
-                                    <span class="badge" style="background-color: #dbeafe; color: #1e40af;">R&B</span>
-                                </div>
-                                <p class="card-text text-muted small mb-3">
-                                    日本のヒップホップシーンを代表するアーティストが集結。アーバンカルチャーの最前線を体感
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="price-tag">¥6,000〜</div>
-                                    <button class="btn btn-primary">
+                                    <div class="price-tag">ダンス</div>
+                                    <button class="btn btn-custom-two" onclick="window.location.href='./music-festival-list.html#dancemusic-section'">
                                         詳細を見る <i class="bi bi-arrow-right"></i>
                                     </button>
                                 </div>
@@ -574,15 +631,75 @@
                 </div>
 
                 <!-- ページネーション -->
-                <nav aria-label="ページネーション">
+                <nav aria-label="ページネーション" class="mt-5">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">
-                                <i class="bi bi-chevron-left"></i> 前へ
-                            </a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <!-- <li class="page-item disabled">
+                            <a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a>
+                        </li> -->
+                        <li class="page-item active"><a class="page-link" href="./music-festival-list.html">1</a></li>
+                        <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                         <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+                        <li class="page-item"><a class="page-link" href="#">18</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a>
+                        </li> -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-music-note-beamed"></i> 日本の音楽史
+                        ~アーティスト特集~</h5>
+                    <p class="text-light">あの頃この頃のアーティストを自分なりに調べてみた</p>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h6 class="fw-bold mb-3">サイト情報</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="./index.html" class="text-light text-decoration-none">About</a>
+                        </li>
+                        <li><a href="./terms-of-service.html" class="text-light text-decoration-none">利用規約</a></li>
+                        <li><a href="./privacy-policy.html" class="text-light text-decoration-none">プライバシー</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h6 class="fw-bold mb-3">サポート</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="./support.html" class="text-light text-decoration-none">ヘルプ</a>
+                        </li>
+                        <li><a href="./support.html#support-section" class="text-light text-decoration-none">お問い合わせ</a></li>
+                        <li><a href="./support.html" class="text-light text-decoration-none">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold mb-3">フォローする</h6>
+                    <div class="d-flex gap-3">
+                        <a href="https://x.com/?lang=ja" target="_blank" class="text-light"><i
+                                class="bi bi-twitter-x fs-4"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" class="text-light"><i
+                                class="bi bi-instagram fs-4"></i></a>
+                        <a href="https://www.youtube.com/account" target="_blank" class="text-light"><i
+                                class="bi bi-youtube fs-4"></i></a>
+                        <a href="https://www.spotify.com/jp/signup" target="_blank" class="text-light"><i
+                                class="bi bi-spotify fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-light">
+            <p class="text-center text-light mb-0">&copy; 2025 日本の音楽史 ~アーティスト特集~ All rights
+                reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

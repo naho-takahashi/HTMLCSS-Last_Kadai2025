@@ -3,27 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>アーティスト一覧 - LiveHub</title>
+    <title>アーティスト一覧 -  日本の音楽史 ~アーティスト特集~</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./img/favicon.webp" type="image/png">
     <style>
         :root {
-            --primary-color: #8b5cf6;
-            --secondary-color: #ec4899;
-            --accent-color: #06b6d4;
-            --dark-bg: #18181b;
+            --primary-color: #5A4632;
+            --secondary-color: #A67C52;
+            --accent-color: #C97B63;
+            --background-color: #F4EDE2;
+            --text-color: #2B1E12;
         }
         
         body {
-            background-color: #fafafa;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Zen Maru Gothic', sans-serif;
+        }
+
+        h1, h2 {
+            letter-spacing: 0.05em;
+        }
+
+        /*追加要素…アーティスト一覧の「フォロー」ボタンをピンク色に変更 */
+        .btn-custom {
+            background-color: white;
+            border-color: #ff69b4;
+            color: #ff69b4;
+        }
+
+        /*ホバー時 */
+        .btn-custom:hover {
+            background-color: #da1f8c;
+            border-color: #da1f8c;
+            color: white;
+        }
+
+        /*追加要素…「アーティスト順」ボタンをピンク色に変更 */
+        .btn-custom-two {
+            background-color: #da1f8c;
+            border-color: #ff69b4;
+            border: none;
+            color: white;
+        }
+
+        /*ホバー時 */
+        .btn-custom-two:hover {
+            background-color: #da1f8c;
+            border-color: #da1f8c;
+            border: none;
+            color: white;
+        }
+
+        /*ページネーションに色を付ける(ピンク色) */
+        .page-item.active .page-link {
+            background-color: #da1f8c;
+            border-color: #da1f8c;
+            color: white;
         }
         
         .navbar {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-color) 100%);
+            background: linear-gradient(135deg, var(--primary-color) 22%, var(--secondary-color) 50%, var(--accent-color) 100%);
         }
         
         .page-header {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-color) 50%, var(--secondary-color) 100%);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 80px 0 50px 0;
             margin-bottom: 40px;
@@ -100,7 +146,7 @@
         }
         
         footer {
-            background-color: var(--dark-bg);
+            background-color: #1f2937;
             color: white;
             margin-top: 60px;
         }
@@ -108,10 +154,10 @@
 </head>
 <body>
     <!-- ナビゲーションバー -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">
-                <i class="bi bi-music-note-beamed"></i> LiveHub
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="./index.html">
+                <i class="bi bi-music-note-beamed"></i> 日本の音楽史 ~アーティスト特集~
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -119,41 +165,41 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ホーム</a>
+                        <a class="nav-link" aria-current="page" href="./index.html">ホーム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">イベント一覧</a>
+                        <a class="nav-link" href="./music-festival-list.html">音楽のルーツ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#">アーティスト</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">チケット購入</a>
+                        <a class="nav-link" href="./music-festival-ticket.html">最推し!!!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">マイチケット</a>
+                        <a class="nav-link" href="./music-festival-myticket.html">コンサート情報</a>
                     </li>
                 </ul>
-                <button class="btn btn-light ms-3 fw-bold">
-                    <i class="bi bi-person-circle"></i> ログイン
+                <button class="btn btn-dark ms-3 fw-bold">
+                    <a class="nav-link" href="./music-login-page.html"><i class="bi bi-person-circle"></i> ログイン</a>
                 </button>
             </div>
         </div>
     </nav>
 
     <!-- ページヘッダー -->
-    <div class="page-header">
+    <div class="page-header" id="return-one">
         <div class="container">
-            <h1 class="display-4 fw-bold mb-3">アーティスト一覧</h1>
-            <p class="lead">お気に入りのアーティストを見つけよう</p>
+            <h1 class="display-4 fw-bold mb-3">お気に入りのアーティスト一覧</h1>
+            <p class="lead">お気に入りのアーティストを見よう</p>
             <div class="row mt-4">
                 <div class="col-md-8">
-                    <div class="input-group input-group-lg">
+                    <!-- <div class="input-group input-group-lg">
                         <input type="text" class="form-control" placeholder="アーティスト名で検索...">
                         <button class="btn btn-light fw-bold" type="button">
                             <i class="bi bi-search"></i> 検索
                         </button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -164,10 +210,10 @@
             <!-- フィルターサイドバー -->
             <div class="col-lg-3">
                 <div class="filter-card">
-                    <h5 class="fw-bold mb-4"><i class="bi bi-funnel-fill"></i> フィルター</h5>
+                    <h5 class="fw-bold mb-7"><i class="bi bi-heart-fill"></i> 最近よく聴く一覧</h5>
                     
                     <!-- ジャンル -->
-                    <div class="mb-4">
+                    <!-- <div class="mb-4">
                         <h6 class="fw-bold mb-3">ジャンル</h6>
                         <div class="form-check mb-2">
                             <input class="form-check-input" type="checkbox" id="genre1">
@@ -205,10 +251,10 @@
                                 R&B <span class="badge bg-secondary">20</span>
                             </label>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- 人気度 -->
-                    <div class="mb-4">
+                    <!-- <div class="mb-4">
                         <h6 class="fw-bold mb-3">人気度</h6>
                         <div class="form-check mb-2">
                             <input class="form-check-input" type="radio" name="popularity" id="pop1">
@@ -232,67 +278,38 @@
 
                     <button class="btn btn-outline-danger w-100">
                         <i class="bi bi-x-circle"></i> クリア
-                    </button>
+                    </button> -->
                 </div>
             </div>
 
             <!-- アーティスト一覧 -->
             <div class="col-lg-9">
-                <!-- アルファベットフィルター -->
-                <div class="alphabet-filter mb-4">
-                    <button class="alphabet-btn active">全て</button>
-                    <button class="alphabet-btn">A</button>
-                    <button class="alphabet-btn">B</button>
-                    <button class="alphabet-btn">C</button>
-                    <button class="alphabet-btn">D</button>
-                    <button class="alphabet-btn">E</button>
-                    <button class="alphabet-btn">F</button>
-                    <button class="alphabet-btn">G</button>
-                    <button class="alphabet-btn">H</button>
-                    <button class="alphabet-btn">I</button>
-                    <button class="alphabet-btn">J</button>
-                    <button class="alphabet-btn">K</button>
-                    <button class="alphabet-btn">L</button>
-                    <button class="alphabet-btn">M</button>
-                    <button class="alphabet-btn">N</button>
-                    <button class="alphabet-btn">O</button>
-                    <button class="alphabet-btn">P</button>
-                    <button class="alphabet-btn">Q</button>
-                    <button class="alphabet-btn">R</button>
-                    <button class="alphabet-btn">S</button>
-                    <button class="alphabet-btn">T</button>
-                    <button class="alphabet-btn">U</button>
-                    <button class="alphabet-btn">V</button>
-                    <button class="alphabet-btn">W</button>
-                    <button class="alphabet-btn">X</button>
-                    <button class="alphabet-btn">Y</button>
-                    <button class="alphabet-btn">Z</button>
-                </div>
 
                 <!-- ソート -->
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h5 class="mb-0">検索結果: <span style="color: var(--primary-color);" class="fw-bold">156件</span></h5>
+                    <h5 class="mb-0">検索結果: <span style="color: var(--primary-color);" class="fw-bold">8件</span></h5>
                     <div class="btn-group">
-                        <button class="btn btn-outline-primary active">人気順</button>
-                        <button class="btn btn-outline-primary">名前順</button>
-                        <button class="btn btn-outline-primary">新着順</button>
+                        <button class="btn btn-custom-two">アーティスト順</button>
+                        <!-- <button class="btn btn-outline-primary">名前順</button>
+                        <button class="btn btn-outline-primary">新着順</button> -->
                     </div>
                 </div>
 
                 <!-- アーティストカード -->
+                <p class="mt-3">※「フォロー」を押すと各アーティストの公式Instagramアカウントに遷移します</p>
                 <div class="row g-4">
                     <div class="col-md-4 col-sm-6">
                         <div class="card artist-card">
-                            <img src="https://placehold.co/300x250/ff6b6b/ffffff?text=THE+ROCKERS" class="artist-img" alt="THE ROCKERS">
+                            <a href="./music-artist-list.html#kingandprince"><img src="./img/アーティスト画像黄色.webp" class="artist-img" alt="King & Princeのアーティスト画像" id="kingandprince"></a>
                             <div class="card-body">
-                                <span class="badge genre-badge mb-2" style="background-color: #fee2e2; color: #991b1b;">ロック</span>
-                                <h5 class="card-title fw-bold mb-2">THE ROCKERS</h5>
-                                <p class="card-text text-muted small mb-2">日本を代表するロックバンド</p>
+                                <span class="badge genre-badge mb-2" style="background-color: #0d0015; color: white;">アイドル</span>
+                                <h5 class="card-title fw-bold mb-2">King & Prince</h5>
+                                <p class="card-text text-muted small mb-2">アイドルグループ</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="followers-count">
-                                        <i class="bi bi-people-fill"></i> 250K
+                                        <i class="bi bi-people-fill"></i> 2.21M
                                     </span>
-                                    <button class="btn btn-sm btn-outline-primary">
+                                    <button class="btn btn-sm btn-custom" onclick="window.open('https://www.instagram.com/kp_official_523/?hl=ja')">
                                         <i class="bi bi-heart"></i> フォロー
                                     </button>
                                 </div>
@@ -302,16 +319,16 @@
 
                     <div class="col-md-4 col-sm-6">
                         <div class="card artist-card">
-                            <img src="https://placehold.co/300x250/4ecdc4/ffffff?text=DJ+WAVE" class="artist-img" alt="DJ WAVE">
+                            <a href="./music-artist-list.html#ni"><img src="./img/アーティスト画像赤.webp" class="artist-img" alt="Number_iのアーティスト画像" id="ni"></a>
                             <div class="card-body">
-                                <span class="badge genre-badge mb-2" style="background-color: #e0e7ff; color: #3730a3;">EDM</span>
-                                <h5 class="card-title fw-bold mb-2">DJ WAVE</h5>
-                                <p class="card-text text-muted small mb-2">世界的トップDJ</p>
+                                <span class="badge genre-badge mb-2" style="background-color: #90326d; color: white;">アーティスト</span>
+                                <h5 class="card-title fw-bold mb-2">Number_i</h5>
+                                <p class="card-text text-muted small mb-2">アーティスト</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="followers-count">
-                                        <i class="bi bi-people-fill"></i> 180K
+                                        <i class="bi bi-people-fill"></i> 1M
                                     </span>
-                                    <button class="btn btn-sm btn-outline-primary">
+                                    <button class="btn btn-sm btn-custom" onclick="window.open('https://www.instagram.com/number_i.official/')">
                                         <i class="bi bi-heart"></i> フォロー
                                     </button>
                                 </div>
@@ -321,16 +338,16 @@
 
                     <div class="col-md-4 col-sm-6">
                         <div class="card artist-card">
-                            <img src="https://placehold.co/300x250/ffe66d/333333?text=JAZZ+QUINTET" class="artist-img" alt="JAZZ QUINTET">
+                            <a href="./music-artist-list.html#iwachi"><img src="./img/アーティスト画像ピンク.webp" class="artist-img" alt="岩橋玄樹のアーティスト画像" id="iwachi"></a>
                             <div class="card-body">
-                                <span class="badge genre-badge mb-2" style="background-color: #dbeafe; color: #1e40af;">ジャズ</span>
-                                <h5 class="card-title fw-bold mb-2">JAZZ QUINTET</h5>
-                                <p class="card-text text-muted small mb-2">伝統的ジャズバンド</p>
+                                <span class="badge genre-badge mb-2" style="background-color: #00afcc; color: white;">アイドル</span>
+                                <h5 class="card-title fw-bold mb-2">岩橋玄樹</h5>
+                                <p class="card-text text-muted small mb-2">アイドル</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="followers-count">
-                                        <i class="bi bi-people-fill"></i> 95K
+                                        <i class="bi bi-people-fill"></i> 1.097M
                                     </span>
-                                    <button class="btn btn-sm btn-outline-primary">
+                                    <button class="btn btn-sm btn-custom" onclick="window.open('https://www.instagram.com/genki_iwahashi_17/?hl=ja')">
                                         <i class="bi bi-heart"></i> フォロー
                                     </button>
                                 </div>
@@ -340,16 +357,16 @@
 
                     <div class="col-md-4 col-sm-6">
                         <div class="card artist-card">
-                            <img src="https://placehold.co/300x250/10b981/ffffff?text=ACOUSTIC+DUO" class="artist-img" alt="ACOUSTIC DUO">
+                            <a href="./music-artist-list.html#imp"><img src="./img/アーティスト画像黒.webp" class="artist-img" alt="IMP.のアーティスト画像" id="imp"></a>
                             <div class="card-body">
-                                <span class="badge genre-badge mb-2" style="background-color: #d1fae5; color: #065f46;">アコースティック</span>
-                                <h5 class="card-title fw-bold mb-2">ACOUSTIC DUO</h5>
-                                <p class="card-text text-muted small mb-2">心温まるデュオ</p>
+                                <span class="badge genre-badge mb-2" style="background-color: #e4007f; color: white;">アイドル</span>
+                                <h5 class="card-title fw-bold mb-2">IMP<span style="color: #e4007f;">.</span></h5>
+                                <p class="card-text text-muted small mb-2">アイドルグループ</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="followers-count">
-                                        <i class="bi bi-people-fill"></i> 120K
+                                        <i class="bi bi-people-fill"></i> 391K
                                     </span>
-                                    <button class="btn btn-sm btn-outline-primary">
+                                    <button class="btn btn-sm btn-custom" onclick="window.open('https://www.instagram.com/_7mp_official_/?hl=ja')">
                                         <i class="bi bi-heart"></i> フォロー
                                     </button>
                                 </div>
@@ -359,16 +376,16 @@
 
                     <div class="col-md-4 col-sm-6">
                         <div class="card artist-card">
-                            <img src="https://placehold.co/300x250/f59e0b/ffffff?text=MC+FLOW" class="artist-img" alt="MC FLOW">
+                            <a href="./music-artist-list.html#jj"><img src="./img/アーティスト画像紫.webp" class="artist-img" alt="Juice=Juiceのアーティスト画像" id="jj"></a>
                             <div class="card-body">
-                                <span class="badge genre-badge mb-2" style="background-color: #fce7f3; color: #9f1239;">ヒップホップ</span>
-                                <h5 class="card-title fw-bold mb-2">MC FLOW</h5>
-                                <p class="card-text text-muted small mb-2">人気ラッパー</p>
+                                <span class="badge genre-badge mb-2" style="background-color: #00489d; color: white;">アイドル</span>
+                                <h5 class="card-title fw-bold mb-2">Juice=Juice</h5>
+                                <p class="card-text text-muted small mb-2">アイドルグループ</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="followers-count">
-                                        <i class="bi bi-people-fill"></i> 200K
+                                        <i class="bi bi-people-fill"></i> 152K
                                     </span>
-                                    <button class="btn btn-sm btn-outline-primary">
+                                    <button class="btn btn-sm btn-custom" onclick="window.open('https://www.instagram.com/juice_juice_official/?hl=ja')">
                                         <i class="bi bi-heart"></i> フォロー
                                     </button>
                                 </div>
@@ -378,16 +395,16 @@
 
                     <div class="col-md-4 col-sm-6">
                         <div class="card artist-card">
-                            <img src="https://placehold.co/300x250/ec4899/ffffff?text=POP+STARS" class="artist-img" alt="POP STARS">
+                            <a href="./music-artist-list.html#ct"><img src="./img/アーティスト画像水色.webp" class="artist-img" alt="CANDYTUNEのアーティスト画像" id="ct"></a>
                             <div class="card-body">
-                                <span class="badge genre-badge mb-2" style="background-color: #fef3c7; color: #92400e;">ポップ</span>
-                                <h5 class="card-title fw-bold mb-2">POP STARS</h5>
-                                <p class="card-text text-muted small mb-2">人気ポップグループ</p>
+                                <span class="badge genre-badge mb-2" style="background-color: #89c997; color: white;">アイドル</span>
+                                <h5 class="card-title fw-bold mb-2">CANDY TUNE</h5>
+                                <p class="card-text text-muted small mb-2">アイドルグループ</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="followers-count">
-                                        <i class="bi bi-people-fill"></i> 300K
+                                        <i class="bi bi-people-fill"></i> 328K
                                     </span>
-                                    <button class="btn btn-sm btn-outline-primary">
+                                    <button class="btn btn-sm btn-custom" onclick="window.open('https://www.instagram.com/candy__tune/')">
                                         <i class="bi bi-heart"></i> フォロー
                                     </button>
                                 </div>
@@ -397,16 +414,16 @@
 
                     <div class="col-md-4 col-sm-6">
                         <div class="card artist-card">
-                            <img src="https://placehold.co/300x250/8b5cf6/ffffff?text=METAL+FORCE" class="artist-img" alt="METAL FORCE">
+                            <a href="./music-artist-list.html#cs"><img src="./img/アーティスト画像緑.webp" class="artist-img" alt="CUTIESTREETのアーティスト画像" id="cs"></a>
                             <div class="card-body">
-                                <span class="badge genre-badge mb-2" style="background-color: #1f2937; color: white;">メタル</span>
-                                <h5 class="card-title fw-bold mb-2">METAL FORCE</h5>
-                                <p class="card-text text-muted small mb-2">激しいメタルバンド</p>
+                                <span class="badge genre-badge mb-2" style="background-color: #f5b2b2; color: white;">アイドル</span>
+                                <h5 class="card-title fw-bold mb-2">CUTIE STREET</h5>
+                                <p class="card-text text-muted small mb-2">アイドルグループ</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="followers-count">
-                                        <i class="bi bi-people-fill"></i> 150K
+                                        <i class="bi bi-people-fill"></i> 658K
                                     </span>
-                                    <button class="btn btn-sm btn-outline-primary">
+                                    <button class="btn btn-sm btn-custom" onclick="window.open('https://www.instagram.com/cutie_street_/?hl=ja')">
                                         <i class="bi bi-heart"></i> フォロー
                                     </button>
                                 </div>
@@ -416,35 +433,16 @@
 
                     <div class="col-md-4 col-sm-6">
                         <div class="card artist-card">
-                            <img src="https://placehold.co/300x250/3b82f6/ffffff?text=SOUL+SINGER" class="artist-img" alt="SOUL SINGER">
+                            <a href="./music-artist-list.html#bn"><img src="./img/アーティスト画像青.webp" class="artist-img" alt="back numberのアーティスト画像" id="bn"></a>
                             <div class="card-body">
-                                <span class="badge genre-badge mb-2" style="background-color: #dbeafe; color: #1e40af;">R&B</span>
-                                <h5 class="card-title fw-bold mb-2">SOUL SINGER</h5>
-                                <p class="card-text text-muted small mb-2">魂のソウルシンガー</p>
+                                <span class="badge genre-badge mb-2 bg-primary" style="color: white;">アーティスト</span>
+                                <h5 class="card-title fw-bold mb-2">back number</h5>
+                                <p class="card-text text-muted small mb-2">アーティスト</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="followers-count">
-                                        <i class="bi bi-people-fill"></i> 85K
+                                        <i class="bi bi-people-fill"></i> 1M
                                     </span>
-                                    <button class="btn btn-sm btn-outline-primary">
-                                        <i class="bi bi-heart"></i> フォロー
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="card artist-card">
-                            <img src="https://placehold.co/300x250/14b8a6/ffffff?text=INDIE+BAND" class="artist-img" alt="INDIE BAND">
-                            <div class="card-body">
-                                <span class="badge genre-badge mb-2" style="background-color: #d1fae5; color: #065f46;">インディー</span>
-                                <h5 class="card-title fw-bold mb-2">INDIE BAND</h5>
-                                <p class="card-text text-muted small mb-2">注目のインディーバンド</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="followers-count">
-                                        <i class="bi bi-people-fill"></i> 60K
-                                    </span>
-                                    <button class="btn btn-sm btn-outline-primary">
+                                    <button class="btn btn-sm btn-custom" onclick="window.open('https://www.instagram.com/back_number_official/')">
                                         <i class="bi bi-heart"></i> フォロー
                                     </button>
                                 </div>
@@ -456,11 +454,11 @@
                 <!-- ページネーション -->
                 <nav aria-label="ページネーション" class="mt-5">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
+                        <!-- <li class="page-item disabled">
                             <a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        </li> -->
+                        <li class="page-item active"><a class="page-link" href="./music-artist-list.html#return-one">1</a></li>
+                        <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                         <li class="page-item"><a class="page-link" href="#">4</a></li>
                         <li class="page-item"><a class="page-link" href="#">5</a></li>
@@ -468,7 +466,7 @@
                         <li class="page-item"><a class="page-link" href="#">18</a></li>
                         <li class="page-item">
                             <a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
             </div>
@@ -480,37 +478,37 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <h5 class="fw-bold mb-3"><i class="bi bi-music-note-beamed"></i> LiveHub</h5>
-                    <p class="text-light">音楽で繋がる、最高の体験をあなたに。</p>
+                    <h5 class="fw-bold mb-3"><i class="bi bi-music-note-beamed"></i> 日本の音楽史 ~アーティスト特集~</h5>
+                    <p class="text-light">あの頃この頃のアーティストを自分なりに調べてみた</p>
                 </div>
                 <div class="col-md-2 mb-3">
                     <h6 class="fw-bold mb-3">サイト情報</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-light text-decoration-none">About</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">利用規約</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">プライバシー</a></li>
+                        <li><a href="./index.html" class="text-light text-decoration-none">About</a></li>
+                        <li><a href="./terms-of-service.html" class="text-light text-decoration-none">利用規約</a></li>
+                        <li><a href="./privacy-policy.html" class="text-light text-decoration-none">プライバシー</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2 mb-3">
                     <h6 class="fw-bold mb-3">サポート</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-light text-decoration-none">ヘルプ</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">お問い合わせ</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+                        <li><a href="./support.html" class="text-light text-decoration-none">ヘルプ</a></li>
+                        <li><a href="./support.html#support-section" class="text-light text-decoration-none">お問い合わせ</a></li>
+                        <li><a href="./support.html" class="text-light text-decoration-none">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-3">
                     <h6 class="fw-bold mb-3">フォローする</h6>
                     <div class="d-flex gap-3">
-                        <a href="#" class="text-light"><i class="bi bi-twitter fs-4"></i></a>
-                        <a href="#" class="text-light"><i class="bi bi-instagram fs-4"></i></a>
-                        <a href="#" class="text-light"><i class="bi bi-youtube fs-4"></i></a>
-                        <a href="#" class="text-light"><i class="bi bi-spotify fs-4"></i></a>
+                        <a href="https://x.com/?lang=ja" target="_blank" class="text-light"><i class="bi bi-twitter-x fs-4"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" class="text-light"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="https://www.youtube.com/account" target="_blank" class="text-light"><i class="bi bi-youtube fs-4"></i></a>
+                        <a href="https://www.spotify.com/jp/signup" target="_blank" class="text-light"><i class="bi bi-spotify fs-4"></i></a>
                     </div>
                 </div>
             </div>
             <hr class="border-light">
-            <p class="text-center text-light mb-0">&copy; 2024 LiveHub. All rights reserved.</p>
+            <p class="text-center text-light mb-0">&copy; 2025 日本の音楽史 ~アーティスト特集~ All rights reserved.</p>
         </div>
     </footer>
 
