@@ -191,6 +191,20 @@
         .form-control {
             border-left: none;
         }
+
+        @media (max-width: 768px) {
+            .back-link {
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                z-index: 9999;
+                background: rgb(115, 94, 48); /*画面が小さくなった時背景色が若干変わる*/
+                padding: 8px 12px;
+                border-radius: 50px;
+                color: white;
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -223,8 +237,8 @@
                             <span class="input-group-text bg-white">
                                 <i class="bi bi-person"></i>
                             </span>
-                            <input type="text" class="form-control form-control-lg" id="username"
-                                placeholder="ユーザー名を入力" required>
+                            <input type="text" class="form-control form-control-lg" id="username" placeholder="ユーザー名を入力"
+                                required>
                         </div>
                     </div>
 
@@ -235,8 +249,8 @@
                             <span class="input-group-text bg-white">
                                 <i class="bi bi-envelope"></i>
                             </span>
-                            <input type="email" class="form-control form-control-lg" id="email"
-                                placeholder="メールアドレスを入力" required>
+                            <input type="email" class="form-control form-control-lg" id="email" placeholder="メールアドレスを入力"
+                                required>
                         </div>
                     </div>
 
@@ -265,7 +279,8 @@
                     </div>
 
                     <!-- 登録ボタン -->
-                    <button type="submit" class="btn btn-login w-100 mb-3" onclick="window.location.href='./music-login-page.html'">
+                    <button type="submit" class="btn btn-login w-100 mb-3"
+                        onclick="window.location.href='./music-login-page.html'">
                         <i class="bi bi-check-circle"></i> 登録する
                     </button>
 
@@ -303,7 +318,8 @@
                 <!-- ログインページへ -->
                 <p class="text-center mt-3">
                     すでにアカウントをお持ちですか？
-                    <a href="./music-login-page.html" class="text-decoration-none fw-bold" style="color: var(--primary-color);">
+                    <a href="./music-login-page.html" class="text-decoration-none fw-bold"
+                        style="color: var(--primary-color);">
                         ログイン
                     </a>
                 </p>
@@ -314,7 +330,7 @@
         <!-- 追加情報 -->
         <div class="text-center mt-4 text-white">
             <p class="mb-2">
-                <a href="./terms-of-service.html" class="text-white text-decoration-none">利用規約</a> ・ 
+                <a href="./terms-of-service.html" class="text-white text-decoration-none">利用規約</a> ・
                 <a href="./privacy-policy.html" class="text-white text-decoration-none">プライバシーポリシー</a>
             </p>
             <p class="small">&copy; 2025 日本の音楽史 ~アーティスト特集~ All rights reserved.</p>
