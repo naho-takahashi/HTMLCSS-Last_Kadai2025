@@ -191,6 +191,20 @@
         .form-control {
             border-left: none;
         }
+        
+        @media (max-width: 768px) {
+            .back-link {
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                z-index: 9999;
+                background: rgb(115, 94, 48); /*画面が小さくなった時背景色が若干変わる*/
+                padding: 8px 12px;
+                border-radius: 50px;
+                color: white;
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 
